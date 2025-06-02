@@ -29,5 +29,5 @@
 
 .red {
   background-color: var(--error);
-  color: var(--text-over-primary);
+  color: var(--text-over-error);
 }

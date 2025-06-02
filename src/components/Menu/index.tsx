@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import {
   HistoryIcon,
   HouseIcon,
-  LoaderIcon,
   MoonIcon,
   RefreshCwIcon,
   SettingsIcon,
@@ -10,6 +9,7 @@ import {
 } from 'lucide-react';
 
 import styles from './styles.module.css';
+import { RouterLink } from '../RouterLink';
 
 type AvailableThemes = 'dark' | 'light';
 
@@ -30,9 +30,6 @@ export function Menu() {
     event.preventDefault();
     setTheme(prevState => (prevState === 'dark' ? 'light' : 'dark'));
   }
-  function test(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
-    event.preventDefault();
-  }
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -41,31 +38,31 @@ export function Menu() {
 
   return (
     <nav className={styles.menu}>
-      <a
+      <RouterLink
         className={styles.menuLink}
-        href='#'
+        href='/'
         aria-label='Ir para a Home'
         title='Ir para a Home'
       >
         <HouseIcon />
-      </a>
-      <a
+      </RouterLink>
+      <RouterLink
         className={styles.menuLink}
-        href='#'
+        href='/history'
         aria-label='Ir para a Histórico'
         title='Ver Histórico'
       >
         <HistoryIcon />
-      </a>
-      <a
+      </RouterLink>
+      <RouterLink
         className={styles.menuLink}
-        href='#'
+        href='/settings'
         aria-label='Ir para Configurações'
         title='Configurações'
-        onClick={test}
       >
         <SettingsIcon />
-      </a>
+      </RouterLink>
+
       <a
         className={styles.menuLink}
         href='#'
